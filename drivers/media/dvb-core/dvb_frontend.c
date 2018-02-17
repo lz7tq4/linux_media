@@ -1778,7 +1778,7 @@ static int dtv_property_process_set(struct dvb_frontend *fe,
 			return r;
 	}
 
-	switch(cmd) {
+	switch (cmd) {
 	case DTV_CLEAR:
 		/*
 		 * Reset a cache of data specific to the frontend here. This does
@@ -2290,7 +2290,7 @@ static int dvb_frontend_handle_ioctl(struct file *file,
 	case FE_ECP3FW_READ:
 		//printk("FE_ECP3FW_READ *****************");
 		if (fe->ops.spi_read) {
-			struct ecp3_info *info = parg;	
+			struct ecp3_info *info = parg;
 			fe->ops.spi_read(fe, info);
 		}
 		err = 0;
@@ -2298,9 +2298,8 @@ static int dvb_frontend_handle_ioctl(struct file *file,
 	case FE_ECP3FW_WRITE:
 		//printk("FE_ECP3FW_WRITE *****************");
 		if (fe->ops.spi_write) {
-			struct ecp3_info *info = parg;	
+			struct ecp3_info *info = parg;
 			fe->ops.spi_write(fe, info);
-		
 		}
 		err = 0;
 		break;
@@ -2308,7 +2307,7 @@ static int dvb_frontend_handle_ioctl(struct file *file,
 	case FE_24CXX_READ:
 		//printk("FE_24CXX_READ *****************");
 		if (fe->ops.mcu_read) {
-			struct mcu24cxx_info *info = parg;	
+			struct mcu24cxx_info *info = parg;
 			fe->ops.mcu_read(fe, info);
 		}
 		err = 0;
@@ -2316,24 +2315,22 @@ static int dvb_frontend_handle_ioctl(struct file *file,
 	case FE_24CXX_WRITE:
 		//printk("FE_24CXX_WRITE *****************");
 		if (fe->ops.mcu_write) {
-			struct mcu24cxx_info *info = parg;	
+			struct mcu24cxx_info *info = parg;
 			fe->ops.mcu_write(fe, info);
-		
 		}
 		err = 0;
 		break;
 	case FE_REGI2C_READ:
 		if (fe->ops.mcu_read) {
-			struct usbi2c_access *info = parg;	
+			struct usbi2c_access *info = parg;
 			fe->ops.reg_i2cread(fe, info);
 		}
 		err = 0;
 		break;
 	case FE_REGI2C_WRITE:
 		if (fe->ops.mcu_write) {
-			struct usbi2c_access *info = parg;	
+			struct usbi2c_access *info = parg;
 			fe->ops.reg_i2cwrite(fe, info);
-		
 		}
 		err = 0;
 		break;
@@ -2423,6 +2420,7 @@ static int dvb_frontend_handle_ioctl(struct file *file,
 		err = 0;
 		break;
 	}
+
 	case FE_GET_INFO: {
 		struct dvb_frontend_info* info = parg;
 

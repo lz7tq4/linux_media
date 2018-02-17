@@ -250,7 +250,7 @@ static int dvb_ca_en50221_check_camstatus(struct dvb_ca_private *ca, int slot)
 
 		cam_changed = (cam_present_now != cam_present_old);
 	}
-	
+
 	if (cam_changed) {
 		if (!cam_present_now)
 			sl->camchange_type = DVB_CA_EN50221_CAMCHANGE_REMOVED;
@@ -1914,7 +1914,6 @@ int dvb_ca_en50221_init(struct dvb_adapter *dvb_adapter,
 		       ret);
 		goto unregister_device;
 	}
-
 	return 0;
 
 unregister_device:
